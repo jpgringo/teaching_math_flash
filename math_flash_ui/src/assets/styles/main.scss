@@ -1,0 +1,74 @@
+div, span, input {
+  box-sizing: border-box;
+  position: relative;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+
+.flash-cards {
+  $card-margin: 18px;
+  $card-font: 4rem "Helvetica Neueu", sans-serif;
+  $card-text-color: lighten(black, 30%);
+  border: solid 1px gainsboro;
+
+  .card {
+    border: solid 1px black;
+    width: 320px;
+    height: 480px;
+    margin: 0 auto;
+    text-align: right;
+    padding: $card-margin;
+    font: $card-font;
+    color: $card-text-color;
+
+    .question {
+      padding-right: $card-margin;
+
+      .operand {
+        &:first-child {
+          display: block;
+          padding-right: $card-margin;
+        }
+      }
+
+      .operator {
+        margin-right: 1em;
+      }
+    }
+
+    .answer {
+      display: block;
+      border-top: solid 3px silver;
+
+      input[type="text"] {
+        right: -$card-margin;
+        font: $card-font;
+        color: $card-text-color;
+        text-align: right;
+        width: 100%;
+        line-height: 144%;
+        padding: 0.125em 0.5em 0 0.5em;
+      }
+    }
+  }
+}
+

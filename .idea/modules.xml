@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/math_flash_server/math_flash_server.iml" filepath="$PROJECT_DIR$/math_flash_server/math_flash_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/math_flash_ui/math_flash_ui.iml" filepath="$PROJECT_DIR$/math_flash_ui/math_flash_ui.iml" />
+    </modules>
+  </component>
+</project>
