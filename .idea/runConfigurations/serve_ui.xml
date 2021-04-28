@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="serve ui" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/math_flash_ui/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="serve" />
+    </scripts>
+    <node-interpreter value="project" />
+    <envs>
+      <env name="VUE_APP_API_HOST" value="http://localhost" />
+      <env name="VUE_APP_API_PORT" value="3333" />
+      <env name=" VUE_APP_API_PATH" value="/api" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>
