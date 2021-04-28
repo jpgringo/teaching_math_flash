@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
-import MultiplicationModule from './multiplication'
 import AuthenticationModule from './auth';
+import MultiplicationModule from './multiplication'
+import StatsModule from './stats';
 
 Vue.use(Vuex)
 
@@ -16,6 +17,7 @@ export default new Vuex.Store({
   },
   modules: {
     auth: AuthenticationModule,
-    multiplication: MultiplicationModule
+    multiplication: MultiplicationModule,
+    stats: StatsModule
   }
 })

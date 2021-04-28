@@ -72,3 +72,24 @@ div, span, input {
   }
 }
 
+.stats {
+  .section {
+    .type {
+      table {
+        border-collapse: collapse;
+        border:solid 2px gainsboro;
+
+        th, td {
+          border:solid 1px gainsboro;
+          padding: 0.125em 0.5em;
+        }
+        th {
+          text-align:center;
+          vertical-align: bottom;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+

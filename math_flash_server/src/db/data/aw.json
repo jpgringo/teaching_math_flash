@@ -1,0 +1,17 @@
+{
+  "multiplication" : {
+    "timesTables" : {
+      "questions" : [
+        {
+          "operands": [0, 0],
+          "operation": "*",
+          "correctAnswer": 6,
+          "correct": 0,
+          "incorrect": 0,
+          "lastCorrect": null,
+          "lastIncorrect": null
+        }
+      ]
+    }
+  }
+}

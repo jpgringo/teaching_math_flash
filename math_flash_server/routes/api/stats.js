@@ -1,5 +1,4 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 const auth = require('../../src/auth');
 const logger = require('../../src/logger').createNamedLogger('api/multiplication');
 const timesTables = require('../../src/problems/times-tables')
@@ -14,19 +13,11 @@ router.options('*', function (req, res, next) {
 
 router.get('*', auth.authenticate('jwt', {session: false}));
 
-
 router.get('/questions', function(req, res) {
   const authToken = auth.decodeToken(req.headers.authorization);
   const username = authToken && authToken.user ? authToken.user.username : undefined;
-  logger.info(`will get next question for user '${username}'…`);
+  logger.info(`will get all questions for user '${username}'…`);
   res.json(timesTables.getAllProblemsForUser(username));
-});
-
-router.get('/questions/next', function(req, res) {
-  const authToken = auth.decodeToken(req.headers.authorization);
-  const username = authToken && authToken.user ? authToken.user.username : undefined;
-  logger.info(`will get next question for user '${username}'…`);
-  res.json(timesTables.getNextProblem(username));
 });
 
 module.exports = router;

@@ -4,6 +4,7 @@ const logger = require('../../src/logger');
 const auth = require('../../src/auth');
 const accounts = require('../../src/db').accounts;
 const multiplicationRouter = require('./multiplication');
+const statsRouter = require('./stats');
 
 router.get('/', function (req, res, next) {
   res.sendStatus(403);
@@ -21,5 +22,6 @@ router.post('/auth',
 
 
 router.use('/multiplication', multiplicationRouter);
+router.use('/stats', statsRouter);
 
 module.exports = router;
