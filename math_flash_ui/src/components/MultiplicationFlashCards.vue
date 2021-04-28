@@ -13,20 +13,29 @@
 </template>
 
 <script>
-import {/*mapState,*/ mapGetters} from 'vuex';
+import {mapState, mapGetters} from 'vuex';
 
 export default {
   name: "MultiplicationFlashCards",
   data: function () {
     return {
       currentState: 'question',
-      operand1: 0,
-      operand2: 0,
       userAnswer: undefined
     }
   },
   computed: {
-    ...mapGetters('auth', ["isLoggedIn"])
+    ...mapGetters('auth', ["isLoggedIn"]),
+    ...mapState('multiplication', ['currentQuestion']),
+    operand1() {
+      return this.currentQuestion !== undefined ?
+        this.currentQuestion.operands[0] :
+          undefined;
+    },
+    operand2() {
+      return this.currentQuestion !== undefined ?
+        this.currentQuestion.operands[1] :
+          undefined;
+    }
   },
   mounted() {
     this.$store.dispatch('multiplication/requestNextQuestion');
@@ -36,10 +45,10 @@ export default {
       console.log(`will evaluate answer`);
       if(this.userAnswer !== undefined) {
         const userAnswer = parseInt(this.userAnswer);
-        const evaluatedAnswer = this.operand1 * this.operand2;
-        const isCorrect = evaluatedAnswer === userAnswer;
-        console.log(`${this.operand1} x ${this.operand2}:`
-        + `${userAnswer} ${isCorrect ? '=' : '≠'} ${evaluatedAnswer}`
+        const correctAnswer = this.currentQuestion ? this.currentQuestion.correctAnswer : undefined;
+        const isCorrect = correctAnswer === userAnswer;
+        console.log(`${this.operand1} x ${this.operand2} = `
+        + `${correctAnswer} ${isCorrect ? '=' : '≠'} ${userAnswer}`
         + `… ${isCorrect ? 'correct!' : 'WRONG'}`);
       }
     }

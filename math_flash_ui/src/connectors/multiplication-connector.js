@@ -1,8 +1,9 @@
-import axios from "axios";
-function getNextQuestion() {
-  return axios.get('http://localhost:3333/api/multiplication/question');
-}
+import {createConnector} from './_connector-core';
+const core = createConnector('multiplication');
 
 export default {
-  getNextQuestion: getNextQuestion
+  getNextQuestion: (authToken) => {
+    return core.get('question', {authToken: authToken});
+  }
+
 }
