@@ -2,9 +2,10 @@
   <div class="view stats">
     <p>latest stats:</p>
     <section class="section" v-for="(section, sectionName) of latestStats">
-      <h2>{{sectionName}}</h2>
+      <h2>{{ sectionName }}</h2>
       <section class="type" v-for="(questionData, questionType) in section">
-        <h3>{{questionType}}</h3>
+        <h3>{{ questionType }}</h3>
+        <p>Max Operand: {{ questionData.maxOperand }}</p>
         <table>
           <thead>
           <tr>
@@ -26,12 +27,12 @@
           </thead>
           <tbody>
           <tr v-for="question in questionData.questions">
-            <td>{{question.operands}}</td>
-            <td>{{question.operation}}</td>
-            <td>{{question.correct}}</td>
+            <td>{{ question.operands }}</td>
+            <td>{{ question.operation }}</td>
+            <td>{{ question.correct }}</td>
             <td>{{ formatDate(question.latestCorrect) }}</td>
-            <td>{{question.incorrect}}</td>
-            <td>{{formatDate(question.latestIncorrect)}}</td>
+            <td>{{ question.incorrect }}</td>
+            <td>{{ formatDate(question.latestIncorrect) }}</td>
             <td>{{ totalResponses(question) }}</td>
             <td>{{ formatDate(latestResponse(question)) }}</td>
             <td>{{ percentCorrect(question) }}</td>
@@ -45,6 +46,7 @@
 
 <script>
 import {mapState} from 'vuex';
+
 export default {
   name: "Stats",
   computed: {
@@ -55,7 +57,7 @@ export default {
   },
   methods: {
     formatDate(date) {
-      if(date) {
+      if (date) {
         return '[formatted date]';
       } else {
         return '—';

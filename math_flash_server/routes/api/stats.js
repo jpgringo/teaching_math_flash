@@ -20,4 +20,16 @@ router.get('/questions', function(req, res) {
   res.json(timesTables.getAllProblemsForUser(username));
 });
 
+router.get('/ranges', function(req, res) {
+  const authToken = auth.decodeToken(req.headers.authorization);
+  const username = authToken && authToken.user ? authToken.user.username : undefined;
+  logger.info(`will get all questions for user '${username}'…`);
+  res.json(
+  Array.from(timesTables.getAllQuestionsByRange(username).entries()).reduce((acc, [key, val]) => {
+    logger.info(`key=${key}, val=${val}`);
+    acc[key] = val;
+    return acc;
+  }, {}));
+});
+
 module.exports = router;
