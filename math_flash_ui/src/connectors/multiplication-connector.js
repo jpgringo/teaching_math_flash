@@ -4,6 +4,9 @@ const core = createConnector('multiplication');
 export default {
   getNextQuestion: (authToken) => {
     return core.get('questions/next', {authToken: authToken});
+  },
+  submitAnswer: (authToken, question, answer) => {
+    return core.post('question/answer', {question: question, answer: answer}, {authToken: authToken});
   }
 
 }

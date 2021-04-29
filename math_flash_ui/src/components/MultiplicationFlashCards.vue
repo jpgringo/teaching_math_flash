@@ -43,6 +43,7 @@ export default {
   methods: {
     evaluateAnswer() {
       console.log(`will evaluate answer`);
+      this.$store.dispatch('multiplication/submitAnswer', this.userAnswer);
       if(this.userAnswer !== undefined) {
         const userAnswer = parseInt(this.userAnswer);
         const correctAnswer = this.currentQuestion ? this.currentQuestion.correctAnswer : undefined;

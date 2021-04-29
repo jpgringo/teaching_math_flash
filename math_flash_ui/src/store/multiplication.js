@@ -18,6 +18,11 @@ export default {
         .then(question => {
           commit('newQuestion', question);
         })
+    },
+    submitAnswer({state, rootGetters}, userAnswer) {
+      const authToken = rootGetters["auth/getAuthToken"];
+      console.log(`submitting answer ${userAnswer} for question:`, state.currentQuestion);
+      multiplicationConnector.submitAnswer(authToken, state.currentQuestion, userAnswer);
     }
   },
   modules: {

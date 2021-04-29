@@ -24,8 +24,12 @@ function createUserDataFile(dataFilePath) {
   return initialData;
 }
 
+function getDataFilePath(username) {
+  return path.join(__dirname, `data/${username}.json`);
+}
+
 function getUserData(username) {
-  const dataFilePath = path.join(__dirname, `data/${username}.json`);
+  const dataFilePath = getDataFilePath(username);
   logger.info(`dataFilePath: ${dataFilePath}`);
   if (!fs.existsSync(dataFilePath)) {
     return createUserDataFile(dataFilePath);
@@ -57,7 +61,54 @@ function getQuestionsForUser(username, section, type, includeCalculatedFields) {
   }
 }
 
+function checkArrayEquality(a, b) {
+  let areEqual = false;
+  if (a.length === b.length) {
+    areEqual = a.every((v, i) => v === b[i]);
+  }
+  return areEqual;
+}
+
+function findQuestionForUser(username, question) {
+  const allQuestions = getQuestionsForUser(username, 'multiplication', 'timesTables');
+  const matchingQuestions = allQuestions.filter(q =>
+    checkArrayEquality(q.operands, question.operands)
+    && q.operation === question.operation);
+  logger.info(`matchingQuestions: %o`, matchingQuestions);
+  return matchingQuestions.length > 0 ? matchingQuestions[0] : null;
+}
+
+function incrementResponseForUser(username, path, question, isAnswerCorrect) {
+  const allQuestions = getUserData(username);
+  const [section, questionType] = path.split('/');
+  const questionSubset = allQuestions[section][questionType].questions;
+  logger.info(`questionSubset: %o`, questionSubset);
+  const qIndex = questionSubset.findIndex(q =>
+    checkArrayEquality(q.operands, question.operands)
+    && q.operation === question.operation);
+  logger.info(`qIndex=${qIndex}`);
+  const existingRecord = questionSubset[qIndex];
+  questionSubset.splice(qIndex, 1, Object.assign({},
+    existingRecord,
+    {
+      correct: isAnswerCorrect ? existingRecord.correct + 1 : existingRecord.correct,
+      incorrect: !isAnswerCorrect ? existingRecord.incorrect + 1 : existingRecord.incorrect,
+      lastCorrect: isAnswerCorrect ? new Date() : existingRecord.lastCorrect,
+      lastIncorrect: !isAnswerCorrect ? new Date() : existingRecord.lastIncorrect
+    }));
+  logger.info(`updated question subset: %o`, questionSubset);
+  logger.info(`all questions, updated? %o`, allQuestions);
+  updateDataFile(username, allQuestions);
+}
+
+function updateDataFile(username, newData) {
+  const dataFilePath = getDataFilePath(username);
+  fs.writeFileSync(dataFilePath, JSON.stringify(newData, null, 2));
+}
+
 module.exports = {
   getAllQuestionsForUser: getAllQuestionsForUser,
-  getQuestionsForUser: getQuestionsForUser
+  getQuestionsForUser: getQuestionsForUser,
+  findQuestionForUser: findQuestionForUser,
+  incrementResponseForUser: incrementResponseForUser
 };

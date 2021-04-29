@@ -9,10 +9,10 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
-          "correct": 0,
-          "incorrect": 0,
-          "lastCorrect": null,
-          "lastIncorrect": null
+          "correct": 1,
+          "incorrect": 2,
+          "lastCorrect": "2021-04-29T19:16:28.522Z",
+          "lastIncorrect": "2021-04-29T19:09:18.612Z"
         }
       ]
     }

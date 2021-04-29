@@ -84,8 +84,18 @@ function getNextProblem(username) {
   return nextQuestion;
 }
 
+function checkAndRecordAnswerForUser(username, question, answer) {
+  const matchingQuestion = questionDb.findQuestionForUser(username, question);
+  if(matchingQuestion !== null) {
+    questionDb.incrementResponseForUser(username, 'multiplication/timesTables',
+      question, question.correctAnswer === answer);
+  }
+}
+
 module.exports = {
   getAllProblemsForUser: getAllProblemsForUser,
+  // findProblemForUser: findProblemForUser,
   getAllQuestionsByRange: questionsByRange,
-  getNextProblem: getNextProblem
+  getNextProblem: getNextProblem,
+  checkAndRecordAnswerForUser: checkAndRecordAnswerForUser
 }

@@ -30,9 +30,9 @@
             <td>{{ question.operands }}</td>
             <td>{{ question.operation }}</td>
             <td>{{ question.correct }}</td>
-            <td>{{ formatDate(question.latestCorrect) }}</td>
+            <td>{{ formatDate(question.lastCorrect) }}</td>
             <td>{{ question.incorrect }}</td>
-            <td>{{ formatDate(question.latestIncorrect) }}</td>
+            <td>{{ formatDate(question.lastIncorrect) }}</td>
             <td>{{ totalResponses(question) }}</td>
             <td>{{ formatDate(latestResponse(question)) }}</td>
             <td>{{ percentCorrect(question) }}</td>
@@ -57,11 +57,18 @@ export default {
   },
   methods: {
     formatDate(date) {
+      console.log(`date:`, date);
       if (date) {
-        return '[formatted date]';
+        const dateObject = new Date(date);
+        return `${dateObject.getDate()} ${this.threeLetterMonth(dateObject.getMonth())} `
+            + `${dateObject.getFullYear().toString().substr(2,2)} `
+            + `${dateObject.getHours()}:${dateObject.getMinutes().toString().padStart(2, '0')}`;
       } else {
         return '—';
       }
+    },
+    threeLetterMonth(monthIndex) {
+      return ['Jan', 'Feb', 'Mar', 'Apr','May','Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][monthIndex];
     },
     totalResponses(question) {
       return question.correct + question.incorrect;
