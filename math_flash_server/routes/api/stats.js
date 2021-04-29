@@ -13,23 +13,25 @@ router.options('*', function (req, res, next) {
 
 router.get('*', auth.authenticate('jwt', {session: false}));
 
-router.get('/questions', function(req, res) {
+router.get('/questions', function (req, res) {
   const authToken = auth.decodeToken(req.headers.authorization);
   const username = authToken && authToken.user ? authToken.user.username : undefined;
   logger.info(`will get all questions for user '${username}'…`);
   res.json(timesTables.getAllProblemsForUser(username));
 });
 
-router.get('/ranges', function(req, res) {
+router.get('/ranges', function (req, res) {
   const authToken = auth.decodeToken(req.headers.authorization);
   const username = authToken && authToken.user ? authToken.user.username : undefined;
   logger.info(`will get all questions for user '${username}'…`);
+  const allQuestionsByRange = timesTables.getAllQuestionsByRange(username);
+  logger.info(`allQuestionsByRange: %o`, allQuestionsByRange);
   res.json(
-  Array.from(timesTables.getAllQuestionsByRange(username).entries()).reduce((acc, [key, val]) => {
-    logger.info(`key=${key}, val=${val}`);
-    acc[key] = val;
-    return acc;
-  }, {}));
+    Array.from(allQuestionsByRange.entries()).reduce((acc, [key, val]) => {
+      logger.info(`key=${key}, val=${val}`);
+      acc[key] = val;
+      return acc;
+    }, {}));
 });
 
 module.exports = router;

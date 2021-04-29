@@ -3,6 +3,22 @@ div, span, input {
   position: relative;
 }
 
+@mixin data-table {
+  border-collapse: collapse;
+  border: solid 2px gainsboro;
+
+  th, td {
+    border: solid 1px gainsboro;
+    padding: 0.125em 0.5em;
+  }
+  th {
+    text-align: center;
+    vertical-align: bottom;
+    font-weight: bold;
+  }
+}
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -76,18 +92,16 @@ div, span, input {
   .section {
     .type {
       table {
-        border-collapse: collapse;
-        border:solid 2px gainsboro;
+        @include data-table;
+      }
+    }
+  }
 
-        th, td {
-          border:solid 1px gainsboro;
-          padding: 0.125em 0.5em;
-        }
-        th {
-          text-align:center;
-          vertical-align: bottom;
-          font-weight: bold;
-        }
+  .range-stats {
+    table {
+      @include data-table;
+      .range {
+        font-weight: bold;
       }
     }
   }

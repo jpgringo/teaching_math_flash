@@ -1,22 +1,39 @@
 const logger = require('../logger').createNamedLogger('/problems/times-tables');
 const questionDb = require('../db').questions;
 
+const RANGE_LIMITS = {
+  failure: 0.3,
+  poor: 0.5,
+  moderate: 0.8,
+  good: 0.95,
+  epsilon: 0.0001
+}
+
 function getAllProblemsForUser(username) {
   return questionDb.getAllQuestionsForUser(username);
 }
 
 function addToRangeMap(rangeMap, rangeName, question) {
   const range = rangeMap.get(rangeName) || rangeMap.set(rangeName, {
-    total: 0,
+    stats: {totalResponses: 0, correct:0, incorrect:0},
     questions: []
   }).get(rangeName);
+  range.stats.totalResponses += question.correct + question.incorrect;
+  range.stats.correct += question.correct;
+  range.stats.incorrect += question.incorrect;
   range.questions.push(question);
   rangeMap.set('total', range.questions.length);
   const questionMaxOperand = Math.max(...question.operands);
+  range.stats.maxOperand =
+    range.stats.maxOperand !== undefined ?
+      Math.max(range.stats.maxOperand, questionMaxOperand) : questionMaxOperand;
   rangeMap.set('maxOperand',
     rangeMap.get('maxOperand') !== undefined ?
       Math.max(rangeMap.get('maxOperand'), questionMaxOperand) : questionMaxOperand);
   const questionProduct = question.operands.reduce((acc, operand) => acc * operand, 1);
+  range.stats.maxResult =
+    range.stats.maxResult !== undefined ?
+      Math.max(range.stats.maxResult, questionProduct) : questionProduct;
   rangeMap.set('maxResult',
     rangeMap.get('maxResult') !== undefined ?
       Math.max(rangeMap.get('maxResult'), questionProduct) : questionProduct);
@@ -24,9 +41,22 @@ function addToRangeMap(rangeMap, rangeName, question) {
 
 function questionsByRange(username) {
   const questions = questionDb.getQuestionsForUser(username, 'multiplication', 'timesTables', true);
+  logger.info(`questions: %o`, questions);
   const rangeMap = questions.reduce((acc, q) => {
     if (isNaN(q.percentCorrect)) {
       addToRangeMap(acc, 'new', q);
+    } else if(Math.abs(1 - q.percentCorrect) < RANGE_LIMITS.epsilon) {
+      addToRangeMap(acc, 'mastered', q);
+    } else if(q.percentCorrect < RANGE_LIMITS.failure) {
+      addToRangeMap(acc, 'failure', q);
+    } else if(q.percentCorrect < RANGE_LIMITS.poor) {
+      addToRangeMap(acc, 'poor', q);
+    } else if(q.percentCorrect < RANGE_LIMITS.moderate) {
+      addToRangeMap(acc, 'moderate', q);
+    } else if(q.percentCorrect < RANGE_LIMITS.good) {
+      addToRangeMap(acc, 'moderate', q);
+    } else {
+      addToRangeMap(acc, 'effectively mastered', q);
     }
     return acc;
   }, new Map());

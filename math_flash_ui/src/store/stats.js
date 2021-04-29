@@ -3,20 +3,28 @@ import statsConnector from '../connectors/stats-connector';
 export default {
   namespaced: true,
   state: {
-    latestStats: undefined
+    rangeStats: undefined,
+    detailedStats: undefined
   },
   mutations: {
-    latestStats(state, stats) {
-      state.latestStats = stats;
+    detailedStats(state, stats) {
+      state.detailedStats = stats;
+    },
+    rangeStats(state, stats) {
+      state.rangeStats = stats;
     }
   },
   actions: {
     getLatestStats({commit, rootGetters}) {
       const authToken = rootGetters["auth/getAuthToken"];
       console.log(`will get next question:`, authToken);
+      statsConnector.getStatsByRange(authToken)
+        .then(stats => {
+          commit('rangeStats', stats);
+        })
       statsConnector.getQuestionStats(authToken)
         .then(stats => {
-          commit('latestStats', stats);
+          commit('detailedStats', stats);
         })
     }
   },

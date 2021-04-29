@@ -1,10 +1,13 @@
 <template>
   <div class="view stats">
-    <p>latest stats:</p>
-    <section class="section" v-for="(section, sectionName) of latestStats">
-      <h2>{{ sectionName }}</h2>
+    <RangeStats>
+      <template v-slot:title><h2>Stats by Range</h2></template>
+    </RangeStats>
+    <h2>Question Detail</h2>
+    <section class="section" v-for="(section, sectionName) of detailedStats">
+      <h3>{{ sectionName }}</h3>
       <section class="type" v-for="(questionData, questionType) in section">
-        <h3>{{ questionType }}</h3>
+        <h4>{{ questionType }}</h4>
         <p>Max Operand: {{ questionData.maxOperand }}</p>
         <table>
           <thead>
@@ -46,11 +49,15 @@
 
 <script>
 import {mapState} from 'vuex';
+import RangeStats from "@/components/RangeStats";
 
 export default {
   name: "Stats",
+  components: {
+    RangeStats
+  },
   computed: {
-    ...mapState('stats', ['latestStats'])
+    ...mapState('stats', ['detailedStats'])
   },
   mounted() {
     this.$store.dispatch('stats/getLatestStats');
