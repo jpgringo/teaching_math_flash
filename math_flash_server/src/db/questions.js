@@ -78,6 +78,17 @@ function findQuestionForUser(username, question) {
   return matchingQuestions.length > 0 ? matchingQuestions[0] : null;
 }
 
+function incrementQuestionRecord(questionRecord, isAnswerCorrect) {
+  return Object.assign({},
+    questionRecord,
+    {
+      correct: isAnswerCorrect ? questionRecord.correct + 1 : questionRecord.correct,
+      incorrect: !isAnswerCorrect ? questionRecord.incorrect + 1 : questionRecord.incorrect,
+      lastCorrect: isAnswerCorrect ? new Date() : questionRecord.lastCorrect,
+      lastIncorrect: !isAnswerCorrect ? new Date() : questionRecord.lastIncorrect
+    });
+}
+
 function incrementResponseForUser(username, path, question, isAnswerCorrect) {
   const allQuestions = getUserData(username);
   const [section, questionType] = path.split('/');
@@ -87,23 +98,27 @@ function incrementResponseForUser(username, path, question, isAnswerCorrect) {
     checkArrayEquality(q.operands, question.operands)
     && q.operation === question.operation);
   logger.info(`qIndex=${qIndex}`);
-  const existingRecord = questionSubset[qIndex];
-  questionSubset.splice(qIndex, 1, Object.assign({},
-    existingRecord,
-    {
-      correct: isAnswerCorrect ? existingRecord.correct + 1 : existingRecord.correct,
-      incorrect: !isAnswerCorrect ? existingRecord.incorrect + 1 : existingRecord.incorrect,
-      lastCorrect: isAnswerCorrect ? new Date() : existingRecord.lastCorrect,
-      lastIncorrect: !isAnswerCorrect ? new Date() : existingRecord.lastIncorrect
-    }));
+  let updatedQuestion;
+  if(qIndex !== -1) {
+    const existingRecord = questionSubset[qIndex];
+    updatedQuestion = incrementQuestionRecord(existingRecord, isAnswerCorrect);
+    questionSubset.splice(qIndex, 1, updatedQuestion);
+  } else {
+    updatedQuestion = incrementQuestionRecord(question, isAnswerCorrect);
+    questionSubset.push(updatedQuestion);
+  }
   logger.info(`updated question subset: %o`, questionSubset);
   logger.info(`all questions, updated? %o`, allQuestions);
   updateDataFile(username, allQuestions);
+  return updatedQuestion;
 }
 
 function updateDataFile(username, newData) {
   const dataFilePath = getDataFilePath(username);
-  fs.writeFileSync(dataFilePath, JSON.stringify(newData, null, 2));
+  fs.writeFile(dataFilePath, JSON.stringify(newData, null, 2), (err) => {
+    if (err) throw err;
+    logger.info(`Saved data to '${dataFilePath}'`);
+  });
 }
 
 module.exports = {

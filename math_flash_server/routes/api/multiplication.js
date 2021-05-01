@@ -33,8 +33,7 @@ router.post('/questions/answer', function(req, res) {
   const authToken = auth.decodeToken(req.headers.authorization);
   const username = authToken && authToken.user ? authToken.user.username : undefined;
   logger.info(`will check answer for user '${username}'…`);
-  timesTables.checkAndRecordAnswerForUser(username, req.body.question, req.body.answer);
-  res.json({msg: "received answer"});
+  res.json(timesTables.checkAndRecordAnswerForUser(username, req.body.question, req.body.answer));
 });
 
 module.exports = router;

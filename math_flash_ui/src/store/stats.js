@@ -17,7 +17,7 @@ export default {
   actions: {
     getLatestStats({commit, rootGetters}) {
       const authToken = rootGetters["auth/getAuthToken"];
-      console.log(`will get next question:`, authToken);
+      // console.log(`will get next question:`, authToken);
       statsConnector.getStatsByRange(authToken)
         .then(stats => {
           commit('rangeStats', stats);

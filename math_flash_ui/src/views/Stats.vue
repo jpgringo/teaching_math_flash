@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     formatDate(date) {
-      console.log(`date:`, date);
+      // console.log(`date:`, date);
       if (date) {
         const dateObject = new Date(date);
         return `${dateObject.getDate()} ${this.threeLetterMonth(dateObject.getMonth())} `

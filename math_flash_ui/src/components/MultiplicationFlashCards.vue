@@ -14,7 +14,7 @@
           <span class="question">
               <span class="operand">{{ latestResponse.question.operands[0] }}</span>
               <span class="operator">x</span>
-              <span class="operand">{{ latestResponse.question.operands[0] }}</span>
+              <span class="operand">{{ latestResponse.question.operands[1] }}</span>
           </span>
           <span class="answer">{{ latestResponse.question.correctAnswer }}</span>
           <span class="user-answer"
@@ -109,13 +109,13 @@ export default {
   },
   methods: {
     getNextQuestion() {
-      // console.log(`will get next question...`);
+      console.log(`will get next question...`);
       this.userAnswer = undefined;
       this.$store.dispatch('multiplication/requestNextQuestion');
       this.currentState = 'asked';
     },
     evaluateAnswer() {
-      // console.log(`will evaluate answer...`);
+      console.log(`will evaluate answer...`);
       this.$store.dispatch('multiplication/submitAnswer', this.userAnswer);
       this.currentState = 'submitted';
     },

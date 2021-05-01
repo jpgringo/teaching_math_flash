@@ -26,12 +26,13 @@ router.get('/ranges', function (req, res) {
   logger.info(`will get all questions for user '${username}'…`);
   const allQuestionsByRange = timesTables.getAllQuestionsByRange(username);
   logger.info(`allQuestionsByRange: %o`, allQuestionsByRange);
-  res.json(
-    Array.from(allQuestionsByRange.entries()).reduce((acc, [key, val]) => {
+  allQuestionsByRange.ranges =
+    Array.from(allQuestionsByRange.ranges.entries()).reduce((acc, [key, val]) => {
       logger.info(`key=${key}, val=${val}`);
       acc[key] = val;
       return acc;
-    }, {}));
+    }, {});
+  res.json(allQuestionsByRange);
 });
 
 module.exports = router;

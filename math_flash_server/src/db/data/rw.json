@@ -9,10 +9,274 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
+          "correct": 44,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:38:35.710Z",
+          "lastIncorrect": "2021-05-01T13:33:37.320Z"
+        },
+        {
+          "operands": [
+            0,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 5,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:29.477Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            0,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 4,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:10.583Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            1,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 5,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:41.998Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            2,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 2,
+          "correct": 2,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:37:30.813Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            2,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
           "correct": 1,
-          "incorrect": 2,
-          "lastCorrect": "2021-04-29T19:16:28.522Z",
-          "lastIncorrect": "2021-04-29T19:09:18.612Z"
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:32:59.788Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            3,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 3,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:38:56.043Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            1,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 1,
+          "correct": 2,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:37:35.338Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            4,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 3,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:38:11.101Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            1,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 2,
+          "correct": 3,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:37:19.447Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            4,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 4,
+          "correct": 2,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:46.801Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            2,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 4,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:36:51.009Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            5,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 2,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:33.803Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            6,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 2,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:37:41.293Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            6,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 6,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:37:14.064Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            3,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 6,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:37:52.529Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            3,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 3,
+          "correct": 3,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:38:41.394Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            7,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 7,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:38:25.230Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            5,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 5,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:38:50.282Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            7,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:05.886Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            7,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 14,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:16.099Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            8,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 8,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:21.511Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            8,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:39:38.332Z",
+          "lastIncorrect": null
         }
       ]
     }

@@ -6,7 +6,7 @@ export default {
     return core.get('questions/next', {authToken: authToken});
   },
   submitAnswer: (authToken, question, answer) => {
-    return core.post('question/answer', {question: question, answer: answer}, {authToken: authToken});
+    return core.post('questions/answer', {question: question, answer: answer}, {authToken: authToken});
   }
 
 }

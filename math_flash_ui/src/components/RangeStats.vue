@@ -6,6 +6,7 @@
       <tr>
         <th>Range</th>
         <th>Total Questions</th>
+        <th>Total Responses</th>
         <th>% Correct</th>
         <th>Max Operand</th>
         <th>Max Result</th>
@@ -14,7 +15,8 @@
       <tbody>
       <tr v-for="[rangeName, range] of statRanges">
         <td class="data range">{{ rangeName }}</td>
-        <td>{{range.stats.total}}</td>
+        <td>{{range.questions.length}}</td>
+        <td>{{range.stats.totalResponses}}</td>
         <td>{{formatPercent(range.stats.percentCorrect)}}</td>
         <td>{{range.stats.maxOperand}}</td>
         <td>{{range.stats.maxResult}}</td>
@@ -31,7 +33,7 @@ export default {
   name: "RangeStats",
   computed: {
     statRanges() {
-      return Object.entries(this.rangeStats)
+      return Object.entries(this.rangeStats.ranges)
           .filter(([key, val]) => {
             return val.stats !== undefined;
           }).map(range => {
