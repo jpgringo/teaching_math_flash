@@ -9,9 +9,9 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
-          "correct": 44,
+          "correct": 46,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:38:35.710Z",
+          "lastCorrect": "2021-05-01T18:49:21.893Z",
           "lastIncorrect": "2021-05-01T13:33:37.320Z"
         },
         {
@@ -21,9 +21,9 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
-          "correct": 5,
+          "correct": 6,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:39:29.477Z",
+          "lastCorrect": "2021-05-01T18:45:28.711Z",
           "lastIncorrect": null
         },
         {
@@ -33,9 +33,9 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
-          "correct": 4,
+          "correct": 8,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:39:10.583Z",
+          "lastCorrect": "2021-05-01T18:48:45.977Z",
           "lastIncorrect": null
         },
         {
@@ -57,9 +57,9 @@
           ],
           "operation": "*",
           "correctAnswer": 2,
-          "correct": 2,
+          "correct": 3,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:37:30.813Z",
+          "lastCorrect": "2021-05-01T18:48:50.832Z",
           "lastIncorrect": null
         },
         {
@@ -69,9 +69,9 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
-          "correct": 1,
+          "correct": 2,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:32:59.788Z",
+          "lastCorrect": "2021-05-01T18:48:26.067Z",
           "lastIncorrect": null
         },
         {
@@ -81,9 +81,9 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
-          "correct": 3,
+          "correct": 8,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:38:56.043Z",
+          "lastCorrect": "2021-05-01T18:49:39.311Z",
           "lastIncorrect": null
         },
         {
@@ -141,9 +141,9 @@
           ],
           "operation": "*",
           "correctAnswer": 4,
-          "correct": 1,
+          "correct": 2,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:36:51.009Z",
+          "lastCorrect": "2021-05-01T18:45:25.243Z",
           "lastIncorrect": null
         },
         {
@@ -177,9 +177,9 @@
           ],
           "operation": "*",
           "correctAnswer": 6,
-          "correct": 1,
+          "correct": 3,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:37:14.064Z",
+          "lastCorrect": "2021-05-01T18:48:21.379Z",
           "lastIncorrect": null
         },
         {
@@ -213,9 +213,9 @@
           ],
           "operation": "*",
           "correctAnswer": 7,
-          "correct": 1,
+          "correct": 4,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:38:25.230Z",
+          "lastCorrect": "2021-05-01T18:49:24.990Z",
           "lastIncorrect": null
         },
         {
@@ -225,9 +225,9 @@
           ],
           "operation": "*",
           "correctAnswer": 5,
-          "correct": 1,
+          "correct": 2,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:38:50.282Z",
+          "lastCorrect": "2021-05-01T18:49:36.251Z",
           "lastIncorrect": null
         },
         {
@@ -237,9 +237,9 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
-          "correct": 1,
+          "correct": 2,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:39:05.886Z",
+          "lastCorrect": "2021-05-01T18:48:10.319Z",
           "lastIncorrect": null
         },
         {
@@ -249,9 +249,9 @@
           ],
           "operation": "*",
           "correctAnswer": 14,
-          "correct": 1,
+          "correct": 2,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:39:16.099Z",
+          "lastCorrect": "2021-05-01T18:45:21.023Z",
           "lastIncorrect": null
         },
         {
@@ -261,9 +261,9 @@
           ],
           "operation": "*",
           "correctAnswer": 8,
-          "correct": 1,
+          "correct": 2,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:39:21.511Z",
+          "lastCorrect": "2021-05-01T18:48:53.831Z",
           "lastIncorrect": null
         },
         {
@@ -273,9 +273,141 @@
           ],
           "operation": "*",
           "correctAnswer": 0,
+          "correct": 2,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:45:36.156Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            4,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 8,
           "correct": 1,
           "incorrect": 0,
-          "lastCorrect": "2021-05-01T18:39:38.332Z",
+          "lastCorrect": "2021-05-01T18:45:32.519Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            5,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 10,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:48:17.338Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            9,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 18,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:48:29.463Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            2,
+            3
+          ],
+          "operation": "*",
+          "correctAnswer": 6,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:48:36.079Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            10,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 20,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:48:57.517Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            11,
+            2
+          ],
+          "operation": "*",
+          "correctAnswer": 22,
+          "correct": 2,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:49:42.413Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            11,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 11,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:49:11.482Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            12,
+            1
+          ],
+          "operation": "*",
+          "correctAnswer": 12,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:49:14.821Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            12,
+            3
+          ],
+          "operation": "*",
+          "correctAnswer": 36,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:49:18.769Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            12,
+            0
+          ],
+          "operation": "*",
+          "correctAnswer": 0,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:49:28.226Z",
+          "lastIncorrect": null
+        },
+        {
+          "operands": [
+            7,
+            3
+          ],
+          "operation": "*",
+          "correctAnswer": 21,
+          "correct": 1,
+          "incorrect": 0,
+          "lastCorrect": "2021-05-01T18:49:32.383Z",
           "lastIncorrect": null
         }
       ]

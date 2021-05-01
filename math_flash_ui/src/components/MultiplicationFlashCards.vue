@@ -8,7 +8,7 @@
               <span class="operator">x</span>
               <span class="operand">{{ operand2 }}</span>
           </span>
-          <span class="answer"><input type="text" v-model="userAnswer"></span>
+          <span class="answer"><input id='user-answer-field' type="text" v-model="userAnswer"></span>
         </div>
         <div id="card-back" class="back" :class="currentState">
           <span class="question">
@@ -22,7 +22,7 @@
             {{ latestResponse.userAnswer }}
           </span>
           <!--          <span class="next" @click="getNextQuestion">next</span>-->
-          <button type="submit" class="next">Next</button>
+          <button id="next-button" type="submit" class="next">Next</button>
         </div>
       </div>
     </form>
@@ -76,14 +76,6 @@ export default {
           break;
       }
       return className;
-      //   active: currentState === 'asked',
-      //       transitional
-      // :
-      //   currentState === 'submitted',
-      //       inactive
-      // :
-      //   currentState === 'evaluated'
-      // }
     }
   },
   watch: {
@@ -142,21 +134,29 @@ export default {
       return areEqual;
     },
     cardFrontTransitionComplete(e) {
-      // console.log(`card front transition has completed '${e.target.className}'`);
-      if (e.target.className.split(' ').includes('response-received')) {
+      console.log(`card front transition has completed '${e.target.className}'`);
+      let classNames = e.target.className.split(' ');
+      if (classNames.includes('response-received')) {
         this.currentState = 'cross-fade';
         setTimeout(() => {
           this.currentState = 'evaluated';
         }, 50);
+      } else if(classNames.includes('asked')) {
+        const inputField = document.getElementById('user-answer-field');
+        if(inputField) inputField.focus();
       }
     },
     cardBackTransitionComplete(e) {
-      // console.log(`card front transition has completed '${e.target.className}'`);
-      if (e.target.className.split(' ').includes('completed')) {
+      console.log(`card back transition has completed '${e.target.className}'`);
+      let classNames = e.target.className.split(' ');
+      if (classNames.includes('completed')) {
         this.currentState = 'cross-fade-reverse';
         setTimeout(() => {
           this.currentState = 'asked';
         }, 50);
+      } else if(classNames.includes('evaluated')) {
+        const nextButton = document.getElementById('next-button');
+        if(nextButton) nextButton.focus();
       }
     }
 
