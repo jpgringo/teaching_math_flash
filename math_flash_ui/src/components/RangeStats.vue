@@ -36,7 +36,7 @@ export default {
             return val.stats !== undefined;
           }).map(range => {
             const stats = range[1].stats;
-            console.log(`stats:`, stats);
+            // console.log(`stats:`, stats);
             stats.percentCorrect = stats.totalResponses === 0 ? 'N/A' :
                 stats.correct / stats.totalResponses;
             return range;

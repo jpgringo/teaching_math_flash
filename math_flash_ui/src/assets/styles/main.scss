@@ -44,17 +44,94 @@ div, span, input {
   $card-margin: 18px;
   $card-font: 4rem "Helvetica Neueu", sans-serif;
   $card-text-color: lighten(black, 30%);
+  $card-flip-duration: 0.25s;
   border: solid 1px gainsboro;
 
   .card {
-    border: solid 1px black;
     width: 320px;
     height: 480px;
     margin: 0 auto;
     text-align: right;
-    padding: $card-margin;
     font: $card-font;
     color: $card-text-color;
+
+    .front, .back {
+      border: solid 1px black;
+      width: 100%;
+      height: 100%;
+      padding: $card-margin;
+      transition: transform $card-flip-duration, background-color $card-flip-duration;
+    }
+
+    .front {
+      background-color: whitesmoke;
+      // from https://easings.net/#easeInQuint
+      transition-timing-function: cubic-bezier(0.64, 0, 0.78, 0);
+
+      &.submitted {
+        background-color: gainsboro;
+      }
+
+      &.response-received {
+        //background-color: orange;
+        transform: scale(0.0, 1);
+      }
+
+      &.cross-fade, &.evaluated, &.completed {
+        display: none;
+      }
+
+      &.cross-fade-reverse {
+        display: block;
+        transform: scale(1, 0);
+      }
+    }
+
+    .back {
+      display: none;
+      // 'easeOutQuint' from https://easings.net/#easeOutQuint
+      transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
+      &.cross-fade {
+        display: block;
+        transform: scale(0.0, 1);
+      }
+
+      &.completed {
+        display: block;
+        transform: scale(1,0);
+      }
+
+      &.evaluated {
+        display: block;
+        transform: scale(1, 1);
+      }
+
+      .answer {
+        padding-right: $card-margin;
+      }
+
+      .user-answer {
+        display: block;
+        width: 100%;
+        text-align: center;
+
+        &.correct {
+          color: mediumseagreen;
+        }
+
+        &.incorrect {
+          color: red;
+        }
+      }
+
+      .next {
+        position: absolute;
+        bottom: $card-margin;
+        right: $card-margin;
+        font-size: 2rem;
+      }
+    }
 
     .question {
       padding-right: $card-margin;
@@ -100,6 +177,7 @@ div, span, input {
   .range-stats {
     table {
       @include data-table;
+
       .range {
         font-weight: bold;
       }
